@@ -3,38 +3,15 @@
 
 #include "config_common.h"
 
-#ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(PLANCK_SOUND)
-    // #define STARTUP_SONG SONG(NO_SOUND)
+/* Planck PCB default pin-out */
+#undef MATRIX_ROW_PINS
+#define MATRIX_ROW_PINS { D1, D0, B2, B6 }
+                       /*  2,  3,  16, 10 */
+#undef MATRIX_COL_PINS
+#define MATRIX_COL_PINS { D4, D3, D7, D2, B4, B5, F4, F5, F6, F7, B1, B3 }
+                       /*  4,  5,  6,  7,  8,  9, A3, A2, A1, A0, 15, 14 */
+#undef QMK_LED
+#undef QMK_SPEAKER
 
-    #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
-                                  SONG(COLEMAK_SOUND), \
-                                  SONG(DVORAK_SOUND) \
-                                }
-#endif
-
-/*
- * MIDI options
- */
-
-/* Prevent use of disabled MIDI features in the keymap */
-//#define MIDI_ENABLE_STRICT 1
-
-/* enable basic MIDI features:
-   - MIDI notes can be sent when in Music mode is on
-*/
-
-#define MIDI_BASIC
-
-/* enable advanced MIDI features:
-   - MIDI notes can be added to the keymap
-   - Octave shift and transpose
-   - Virtual sustain, portamento, and modulation wheel
-   - etc.
-*/
-//#define MIDI_ADVANCED
-
-/* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
-//#define MIDI_TONE_KEYCODE_OCTAVES 2
 
 #endif
