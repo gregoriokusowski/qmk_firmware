@@ -5,3 +5,4 @@ endif
 MCU = atmega32u4
 BOOTLOADER = atmel-dfu
 CONSOLE_ENABLE = yes
+MOUSEKEY_ENABLE = yes

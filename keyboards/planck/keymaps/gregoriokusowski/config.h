@@ -13,5 +13,7 @@
 #undef QMK_LED
 #undef QMK_SPEAKER
 
+#define USB_MAX_POWER_CONSUMPTION 50
+
 
 #endif
