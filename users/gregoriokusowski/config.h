@@ -3,7 +3,7 @@
 
 // #include QMK_KEYBOARD_H
 
-#ifdef KEYBOARD_planck
+#ifdef KEYBOARD_planck_rev5
   #undef MATRIX_ROW_PINS
   #define MATRIX_ROW_PINS { D1, D0, B2, B6 }
                          /*  2,  3, 16, 10 */
