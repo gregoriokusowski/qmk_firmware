@@ -12,20 +12,19 @@ enum layers {
   _LOWER,
   _RAISE,
   _ADJUST,
-  _MOUSE
+  _MOUSE,
+  _NUMBERS
 };
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE
 };
 
-#define KC_X0 MT(MOD_LCTL, KC_ESC)  // Hold for Left Ctrl, Tap for ESC
-#define KC_X1 MT(MOD_RSFT, KC_ENT)  // Hold for Right Shift, Tap for Enter
-
 // TODO: Add tap/tap dance actions to mods, ex.: LOWER MT(MO(_LOWER), KC_SPC)
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
-#define MOUSE MO(_MOUSE)
+#define LOWER  MO(_LOWER)
+#define RAISE  MO(_RAISE)
+#define MOUSE  MO(_MOUSE)
+#define NUMBERS MO(_NUMBERS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -39,12 +38,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+------+------+------+------+------+-----------|
  * |Mouse   | Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right      |
  * `------------------------------------------------------------------------------------------'
+ * added: ASDF on hold shift/ctrl/alt/cmd, same way on jkl; (;lkj mirrored)
  */
 [_QWERTY] = {
-  {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  {KC_X0,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_X1 },
-  {MOUSE,   KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,
+      KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC},
+  {LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G,
+      KC_H, KC_J, KC_K, KC_L, KC_SCLN, RCTL_T(KC_QUOT)},
+  /*{LCTL_T(KC_ESC), LSFT_T(KC_A), LCTL_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), KC_G,*/
+      /*KC_H, RGUI_T(KC_J), RALT_T(KC_K), RCTL_T(KC_L), RSFT_T(KC_SCLN), RCTL_T(KC_QUOT)},*/
+  {KC_LSFT, LT(NUMBERS, KC_Z), KC_X, KC_C, KC_V, KC_B,
+      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, RSFT_T(KC_ENT)},
+  {MOUSE, KC_LCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC,
+      KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT}
 },
 
 /* Lower
@@ -117,6 +123,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_MS_U, _______},
   {_______, KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, KC_BTN5, _______, KC_ACL2, KC_ACL1, KC_ACL0, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
+},
+
+/* Numbers layer
+ * Hold Z and have a numpad where 4 is at your right index.
+ */
+[_NUMBERS] = {
+  {_______, _______, _______, _______, _______, _______, _______,    KC_P7,  KC_P8,  KC_P9, KC_KP_SLASH, _______},
+  {_______, _______, _______, _______, _______, _______, _______,    KC_P4,  KC_P5,  KC_P6, KC_KP_ASTERISK, _______},
+  {_______, _______, _______, _______, _______, _______, _______,    KC_P1,  KC_P2,  KC_P3, KC_KP_MINUS, _______},
+  {_______, _______, _______, _______, _______, _______, _______,    KC_P0,KC_COMM, KC_DOT, KC_KP_PLUS, _______}
 }
 
 };

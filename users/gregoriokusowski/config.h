@@ -1,7 +1,12 @@
-#ifndef USERSPACE_CONFIG_H
-#define USERSPACE_CONFIG_H
+#pragma once
 
-// #include QMK_KEYBOARD_H
+
+// https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold
+//#define TAPPING_FORCE_HOLD
+//#define PERMISSIVE_HOLD
+//#define IGNORE_MOD_TAP_INTERRUPT
+//#define RETRO_TAPPING
+//#define TAPPING_TERM 200
 
 #ifdef KEYBOARD_planck_rev5
   #undef MATRIX_ROW_PINS
@@ -17,9 +22,3 @@
 #ifdef KEYBOARD_contra
 
 #endif
-
-#ifdef KEYBOARD_ut47
-
-#endif
-
-#endif // !USERSPACE_CONFIG_HH
