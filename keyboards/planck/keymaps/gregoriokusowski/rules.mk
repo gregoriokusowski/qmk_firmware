@@ -1,0 +1,3 @@
+MIDI_ENABLE = yes
+SRC += muse.c
+SEQUENCER_ENABLE = yes
