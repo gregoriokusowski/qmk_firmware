@@ -38,6 +38,7 @@ enum userspace_layers {
 
 // Lets the row macros below expand before the board's LAYOUT macro counts its arguments
 #define LAYOUT_planck_grid_wrapper(...) LAYOUT_planck_grid(__VA_ARGS__)
+#define LAYOUT_ortho_4x12_wrapper(...)  LAYOUT_ortho_4x12(__VA_ARGS__)
 #define LAYOUT_ortho_5x12_wrapper(...)  LAYOUT_ortho_5x12(__VA_ARGS__)
 
 /* Qwerty
@@ -119,6 +120,22 @@ enum userspace_layers {
 #define NUMBERS_R2 _______, _______, _______, _______, _______, _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PAST, _______
 #define NUMBERS_R3 _______, _______, _______, _______, _______, _______, _______, KC_P1,   KC_P2,   KC_P3,   KC_PMNS, _______
 #define NUMBERS_R4 _______, _______, _______, _______, _______, _______, _______, KC_P0,   KC_COMM, KC_DOT,  KC_PPLS, _______
+
+/* Basic Adjust (Lower + Raise), for boards without audio or RGB
+ * ,-----------------------------------------------------------------------------------.
+ * |      | Boot |Debug |      |      |      |      |      |      |      |      |  Del |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |AGnorm|AGswap|      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+#define ADJUST_BASIC_R1 _______, QK_BOOT, DB_TOGG, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL
+#define ADJUST_BASIC_R2 _______, _______, _______, _______, _______, AG_NORM, AG_SWAP, _______, _______, _______, _______, _______
+#define ADJUST_BASIC_R3 TRANSPARENT_ROW
+#define ADJUST_BASIC_R4 TRANSPARENT_ROW
 
 // Top row for 5x12 boards
 #define NUMBER_ROW KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC

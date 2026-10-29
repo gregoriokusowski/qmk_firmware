@@ -4,9 +4,12 @@ Shared typing layers for:
 
 * `planck/rev6:gregoriokusowski` (adds MIDI, Synth and Drums modes)
 * `peej/lumberjack:gregoriokusowski` (adds a number row on top)
+* `contra:gregoriokusowski`
+* `handwired/kusowski_planck:gregoriokusowski`
+* `handwired/kusowski_preonic:gregoriokusowski` (adds a number row on top)
 
 Layers: Qwerty, Lower, Raise, Mouse, Numbers as row macros in `gregoriokusowski.h`.
-Each keymap defines its own Adjust layer (Lower + Raise), because it holds board-specific keys.
+Adjust (Lower + Raise): `ADJUST_BASIC_*` for boards without audio or RGB. The Planck rev6 has its own, with RGB, audio and mode keys.
 
 Typing customizations:
 
